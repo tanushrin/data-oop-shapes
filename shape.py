@@ -20,8 +20,7 @@ class Rectangle(Shape):
     def __init__(self, color, name, width, height):
         '''Initializes the Rectangle object with the given name, color, width,
         and height.'''
-        self.color = color
-        self.name = name
+        super().__init__(color, name)
         self.width = width
         self.height = height
 
@@ -29,7 +28,8 @@ class Rectangle(Shape):
         '''Overrides the base class method to print the name of the rectangle
         along with its shape type ((e.g. “My name is Rei and I am a rectangle”))
         . '''
-        return f"My name is {self.name} and I am a rectangle."
+        return Shape.say_name(self) + " and I am a rectangle."
+
 
     def area(self):
         '''Calculates and returns the area of the rectangle.'''
@@ -45,15 +45,14 @@ class Circle(Shape):
     def __init__(self, color, name, radius):
         '''Initializes the Circle object with the given name, color, and
         radius.'''
-        self.color = color
-        self.name = name
+        super().__init__(color, name)
         self.radius = radius
 
     def say_name(self):
         '''Overrides the base class method to print the name of the circle
         along with its shape type (e.g. “My name is Kvothe and I am a circle”)
         .'''
-        return f"My name is {self.name} and I am a circle."
+        return Shape.say_name(self) + " and I am a circle."
 
     def area(self):
         '''Calculates and returns the area of the circle. '''
@@ -62,7 +61,3 @@ class Circle(Shape):
     def perimeter(self):
         '''Calculates and returns the perimeter of the circle. '''
         return 2 * math.pi * self.radius
-
-
-#circle = Circle("green", "Dora", 3)
-#print(circle.say_name())
