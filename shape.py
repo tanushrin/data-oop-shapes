@@ -1,7 +1,8 @@
+"""Module providing a function calculating area, perimeter of shapes."""
 import math
 
 
-class Shape():
+class Shape(): # pylint: disable=too-few-public-methods
     '''This is the base class for all shapes and has the following attributes
     and methods:'''
     def __init__(self, color, name):
